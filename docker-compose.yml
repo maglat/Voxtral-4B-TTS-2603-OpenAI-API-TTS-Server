@@ -1,0 +1,23 @@
+#version: '3.8'
+
+services:
+  voxtral-tts:
+    build: .
+    container_name: voxtral-tts
+    ports:
+      - "4576:4576"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+#              count: 1
+              capabilities: [gpu]
+              device_ids: ['0']
+    volumes:
+      - ./models:/models
+      - huggingface_cache:/root/.cache/huggingface
+    restart: unless-stopped
+
+volumes:
+  huggingface_cache:
