@@ -59,25 +59,14 @@ curl -X POST http://localhost:4576/v1/audio/speech \
 - `opus`
 - `pcm`
 
-## Testen
-
-```bash
-# Test-Skript ausführen
-pip install httpx soundfile
-
-# Einfacher Test
-python test_tts.py --text "Hallo, wie geht es dir?" --voice de_female --output test.wav
-
-# Mit STT-Verifikation
-python test_tts.py --text "Hallo, das ist ein Test" --voice de_female --verify
-```
-
 ## Open WebUI Integration
 
 In Open WebUI kannst du den TTS-Service wie folgt nutzen:
 
 ```
 API URL: http://<server-ip>:4576
+Model: "mistralai/Voxtral-4B-TTS-2603"
+Voice: "de_female"
 ```
 
 Die OpenAI-kompatible API ist unter `/v1/audio/speech` erreichbar.
@@ -120,7 +109,5 @@ Generiert Sprachaudio aus Text.
 - NVIDIA GPU (min. 16GB VRAM empfohlen)
 - CUDA 12.9+
 - Min. 32GB RAM
-
-## Lizenz
 
 CC-BY-NC-4.0 - Nicht-kommerzielle Nutzung
